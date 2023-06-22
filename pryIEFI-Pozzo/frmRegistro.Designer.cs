@@ -81,6 +81,7 @@
             // 
             // btnRegistrar
             // 
+            this.btnRegistrar.Enabled = false;
             this.btnRegistrar.Location = new System.Drawing.Point(109, 345);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
@@ -95,21 +96,29 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 3;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtApellido
             // 
+            this.txtApellido.Enabled = false;
             this.txtApellido.Location = new System.Drawing.Point(84, 68);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
             this.txtApellido.TabIndex = 4;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // cmbPaises
             // 
+            this.cmbPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaises.Enabled = false;
             this.cmbPaises.FormattingEnabled = true;
             this.cmbPaises.Location = new System.Drawing.Point(84, 104);
             this.cmbPaises.Name = "cmbPaises";
             this.cmbPaises.Size = new System.Drawing.Size(100, 21);
             this.cmbPaises.TabIndex = 5;
+            this.cmbPaises.SelectedIndexChanged += new System.EventHandler(this.cmbPaises_SelectedIndexChanged);
             // 
             // lblSeleccionarPais
             // 
@@ -138,10 +147,17 @@
             // 
             // nudEdad
             // 
+            this.nudEdad.Enabled = false;
             this.nudEdad.Location = new System.Drawing.Point(84, 147);
             this.nudEdad.Name = "nudEdad";
             this.nudEdad.Size = new System.Drawing.Size(100, 20);
             this.nudEdad.TabIndex = 9;
+            this.nudEdad.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.nudEdad.ValueChanged += new System.EventHandler(this.nudEdad_ValueChanged);
             // 
             // lblEdad
             // 
@@ -156,7 +172,8 @@
             // 
             this.mrcSexo.Controls.Add(this.optFem);
             this.mrcSexo.Controls.Add(this.optMasc);
-            this.mrcSexo.Location = new System.Drawing.Point(14, 178);
+            this.mrcSexo.Enabled = false;
+            this.mrcSexo.Location = new System.Drawing.Point(14, 173);
             this.mrcSexo.Name = "mrcSexo";
             this.mrcSexo.Size = new System.Drawing.Size(170, 72);
             this.mrcSexo.TabIndex = 11;
@@ -184,13 +201,17 @@
             this.optMasc.TabStop = true;
             this.optMasc.Text = "Masculino";
             this.optMasc.UseVisualStyleBackColor = true;
+            this.optMasc.CheckedChanged += new System.EventHandler(this.optMasc_CheckedChanged);
             // 
             // txtImporte
             // 
+            this.txtImporte.Enabled = false;
             this.txtImporte.Location = new System.Drawing.Point(84, 262);
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.Size = new System.Drawing.Size(100, 20);
             this.txtImporte.TabIndex = 13;
+            this.txtImporte.TextChanged += new System.EventHandler(this.txtImporte_TextChanged);
+            this.txtImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImporte_KeyPress);
             // 
             // lblImporte
             // 
@@ -203,10 +224,13 @@
             // 
             // txtPuntaje
             // 
+            this.txtPuntaje.Enabled = false;
             this.txtPuntaje.Location = new System.Drawing.Point(84, 300);
             this.txtPuntaje.Name = "txtPuntaje";
             this.txtPuntaje.Size = new System.Drawing.Size(100, 20);
             this.txtPuntaje.TabIndex = 15;
+            this.txtPuntaje.TextChanged += new System.EventHandler(this.txtPuntaje_TextChanged);
+            this.txtPuntaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPuntaje_KeyPress);
             // 
             // lblPuntaje
             // 

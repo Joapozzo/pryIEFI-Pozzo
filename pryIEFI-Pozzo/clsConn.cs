@@ -63,25 +63,35 @@ namespace pryIEFI_Pozzo
             commandDb.Connection.Close();
         }
 
-        public void agregarSocio(string nombre, string apellido, string pais, int edad, string sexo, decimal importe, int puntaje)
+        public void agregarSocio(string nombre, string apellido, string pais, int edad, bool sexo, decimal importe, int puntaje)
         {
-            connDb.Open();
+            try
+            {
+                connDb.Open();
 
-            OleDbCommand commandInsert = new OleDbCommand();
-            commandInsert.Connection = connDb;
-            commandInsert.CommandType = CommandType.Text;
-            commandInsert.CommandText = "INSERT INTO SOCIOS (Nombre, Apellido, Pais, Edad, Sexo, Importe, Puntaje) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            commandInsert.Parameters.AddWithValue("@Nombre", nombre);
-            commandInsert.Parameters.AddWithValue("@Apellido", apellido);
-            commandInsert.Parameters.AddWithValue("@Pais", pais);
-            commandInsert.Parameters.AddWithValue("@Edad", edad);
-            commandInsert.Parameters.AddWithValue("@Sexo", sexo);
-            commandInsert.Parameters.AddWithValue("@Importe", importe);
-            commandInsert.Parameters.AddWithValue("@Puntaje", puntaje);
+                OleDbCommand commandInsert = new OleDbCommand();
+                commandInsert.Connection = connDb;
+                commandInsert.CommandType = CommandType.Text;
+                commandInsert.CommandText = "INSERT INTO SOCIOS (NOMBRE, APELLIDO, LUGAR_NACIMIENTO, EDAD, SEXO, INGRESO, PUNTAJE) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                commandInsert.Parameters.AddWithValue("@Nombre", nombre);
+                commandInsert.Parameters.AddWithValue("@Apellido", apellido);
+                commandInsert.Parameters.AddWithValue("@Pais", pais);
+                commandInsert.Parameters.AddWithValue("@Edad", edad);
+                commandInsert.Parameters.AddWithValue("@Sexo", sexo);
+                commandInsert.Parameters.AddWithValue("@Importe", importe);
+                commandInsert.Parameters.AddWithValue("@Puntaje", puntaje);
 
-            commandInsert.ExecuteNonQuery();
+                commandInsert.ExecuteNonQuery();
 
-            connDb.Close();
+                connDb.Close();
+
+                connDb.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
         }
 
 
