@@ -53,7 +53,25 @@ namespace pryIEFI_Pozzo
             decimal importe = decimal.Parse(txtImporte.Text);
             int puntaje = int.Parse(txtPuntaje.Text);
 
-            if (nudEdad.Value > 49 || importe > 1000 || puntaje > 130)
+            // Limpiar los campos después de agregar un socio
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            cmbPaises.SelectedIndex = -1;
+            nudEdad.Value = 0;
+            optFem.Checked = false;
+            optMasc.Checked = false;
+            txtImporte.Text = "";
+            txtPuntaje.Text = "";
+
+            if (nudEdad.Value < 49 && importe < 1000 && puntaje < 130)
+            {
+                //instancia de objeto
+                clsConn objConn = new clsConn();
+                objConn.agregarSocio(nombre, apellido, pais, edad, esMasculino, importe, puntaje);
+
+                MessageBox.Show("Socio agregado con éxito.");
+            }
+            else
             {
                 MessageBox.Show("RECUERDE: Edad mayor a 49, Importe mayor a $1000, Puntaje mayor a 130",
                 "Mensaje de Alerta",
@@ -61,24 +79,6 @@ namespace pryIEFI_Pozzo
                 MessageBoxIcon.Warning);
 
                 return;
-            }
-            else
-            {
-                //instancia de objeto
-                clsConn objConn = new clsConn();
-                objConn.agregarSocio(nombre, apellido, pais, edad, esMasculino, importe, puntaje);
-
-                MessageBox.Show("Socio agregado con éxito.");
-
-                // Limpiar los campos después de agregar un socio
-                txtNombre.Text = "";
-                txtApellido.Text = "";
-                cmbPaises.SelectedIndex = -1;
-                nudEdad.Value = 0;
-                optFem.Checked = false;
-                optMasc.Checked = false;
-                txtImporte.Text = "";
-                txtPuntaje.Text = "";
             }
         }
 
